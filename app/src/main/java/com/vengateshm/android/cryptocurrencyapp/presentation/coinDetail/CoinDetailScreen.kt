@@ -10,12 +10,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.flowlayout.FlowRow
+import com.vengateshm.android.cryptocurrencyapp.common.Colors
 import com.vengateshm.android.cryptocurrencyapp.presentation.coinDetail.components.CoinTag
 import com.vengateshm.android.cryptocurrencyapp.presentation.coinDetail.components.TeamListItem
 
@@ -33,11 +33,11 @@ fun CoinDetailScreen(
                     Row(modifier = Modifier
                         .fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween) {
-                        Text(text = "${coin.rank} ${coin.name} (${coin.symbol})",
-                            style = MaterialTheme.typography.h2,
+                        Text(text = "${coin.rank}. ${coin.name} (${coin.symbol})",
+                            style = MaterialTheme.typography.h5,
                             modifier = Modifier.weight(8f))
                         Text(text = if (coin.isActive) "Active" else "Inactive",
-                            color = if (coin.isActive) Color.Green else Color.Red,
+                            color = if (coin.isActive) Colors.coinActive else Colors.coinInActive,
                             textAlign = TextAlign.End,
                             modifier = Modifier
                                 .align(Alignment.CenterVertically)
@@ -49,7 +49,7 @@ fun CoinDetailScreen(
                         style = MaterialTheme.typography.body2)
                     Spacer(modifier = Modifier.height(15.dp))
                     Text(text = "Tags",
-                        style = MaterialTheme.typography.h3)
+                        style = MaterialTheme.typography.h5)
                     Spacer(modifier = Modifier.height(15.dp))
                     FlowRow(mainAxisSpacing = 10.dp,
                         crossAxisSpacing = 10.dp,
@@ -60,13 +60,15 @@ fun CoinDetailScreen(
                     }
                     Spacer(modifier = Modifier.height(15.dp))
                     Text(text = "Team members",
-                        style = MaterialTheme.typography.h3)
+                        style = MaterialTheme.typography.h5)
                 }
                 items(coin.team) { teamMember ->
                     TeamListItem(teamMember = teamMember,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(10.dp))
+                            .padding(top = 10.dp,
+                                bottom = 10.dp,
+                                end = 10.dp))
                     Divider()
                 }
             }

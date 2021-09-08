@@ -34,7 +34,7 @@ fun TeamListItem(
     Column(modifier = modifier,
         verticalArrangement = Arrangement.Center) {
         Text(text = teamMember.name,
-            style = MaterialTheme.typography.h4)
+            style = MaterialTheme.typography.body1)
         Spacer(modifier = Modifier.height(4.dp))
         Text(text = teamMember.position,
             style = MaterialTheme.typography.body2,

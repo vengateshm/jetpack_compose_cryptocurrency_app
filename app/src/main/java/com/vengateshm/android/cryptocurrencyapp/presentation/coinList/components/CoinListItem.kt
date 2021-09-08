@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.vengateshm.android.cryptocurrencyapp.common.Colors
 import com.vengateshm.android.cryptocurrencyapp.domain.model.Coin
 
 @Composable
@@ -27,14 +28,19 @@ fun CoinListItem(
         .padding(20.dp)
         .clickable { onItemClick(coin) },
         horizontalArrangement = Arrangement.SpaceBetween) {
-        Text(text = "${coin.rank} ${coin.name} (${coin.symbol})",
+        Text(text = "${coin.rank}. ${coin.name} (${coin.symbol})",
             style = MaterialTheme.typography.body1,
-            overflow = TextOverflow.Ellipsis)
-        Text(text = if (coin.isActive) "Active" else "Inactive",
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.weight(8f))
+        Text(
+            text = if (coin.isActive) "Active" else "Inactive",
             style = MaterialTheme.typography.body2,
-            color = if (coin.isActive) Color.Green else Color.Red,
+            color = if (coin.isActive) Colors.coinActive else Colors.coinInActive,
             textAlign = TextAlign.End,
-            modifier = Modifier.align(Alignment.CenterVertically),
-            fontStyle = FontStyle.Italic)
+            modifier = Modifier
+                .align(Alignment.CenterVertically)
+                .weight(2f),
+            fontStyle = FontStyle.Italic,
+        )
     }
 }
