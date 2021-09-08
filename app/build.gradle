@@ -80,8 +80,11 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:5.0.0-alpha.2"
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
 
-    // Accompanist - Flow layout
+    // Accompanist
+    // Flow Layout
     implementation "com.google.accompanist:accompanist-flowlayout:0.18.0"
+    // System UI Controller
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.18.0"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
